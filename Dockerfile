@@ -7,6 +7,10 @@ MAINTAINER tim@arctium.io
 
 ENV TOWER_VER 3.0.3
 
+# testing | import gpg key for epel manually to maybe prevent docker hub from throwing up
+RUN curl -O https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 
+    && rpm --import RPM-GPG-KEY-EPEL-7
+    
 # Enable EPEL-Repo, install Ansible
 RUN yum update -y \
     && yum install -y sudo \
@@ -20,9 +24,6 @@ RUN cd /opt \
     && cd ansible-tower-setup-${TOWER_VER}
     
 ADD inventory /opt/ansible-tower-setup-${TOWER_VER}/inventory
-
-#testing
-RUN echo $(whoami)
 
 RUN cd /opt/ansible-tower-setup-${TOWER_VER} \
     && sudo ./setup.sh
