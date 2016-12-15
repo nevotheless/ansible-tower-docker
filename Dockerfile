@@ -9,7 +9,7 @@ ENV TOWER_VER 3.0.3
 
 # Enable EPEL-Repo, install Ansible
 RUN yum update -y \
-    && yum install -y sudo
+    && yum install -y sudo \
     && yum install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
     && yum install -y ansible
 
@@ -25,6 +25,6 @@ ADD inventory /opt/ansible-tower-setup-${TOWER_VER}/inventory
 RUN echo $(whoami)
 
 RUN cd /opt/ansible-tower-setup-${TOWER_VER} \
-    && ./setup.sh
+    && sudo ./setup.sh
 
 EXPOSE 443 8080
