@@ -22,7 +22,7 @@ RUN cd /opt \
 ADD inventory /opt/ansible-tower-setup-${TOWER_VER}/inventory
 
 RUN cd /opt/ansible-tower-setup-${TOWER_VER} \
-    && su root \ # i know it's stupid but tower-setup isn't smart enough to actually know that it already have enough permissions
+    && su root \
     && ./setup.sh
 
 EXPOSE 443 8080
