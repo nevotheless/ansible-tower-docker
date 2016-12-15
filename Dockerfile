@@ -1,17 +1,17 @@
 #ansible-tower dockerfile
 # WORK IN PROGRESS
 # DO NOT USE IN PRODUCTION
-FROM ununseptium/centos-systemd
+FROM ubuntu/trusty
 
 MAINTAINER tim@arctium.io
 
 ENV TOWER_VER 3.0.3
     
 # Enable EPEL-Repo, install Ansible
-RUN yum update -y \
-    && yum install -y sudo \
-    && yum install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
-    && yum install -y ansible
+RUN apt-get update -y \
+    && apt-get install software-properties-common \
+    && apt-add-repository ppa:ansible/ansible \
+    && apt-get install ansible -y
 
 # Download and install Tower
 RUN cd /opt \
