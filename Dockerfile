@@ -15,13 +15,13 @@ RUN yum update -y \
 
 # Download and install Tower
 RUN cd /opt \
-    && curl -O https://releases.ansible.com/ansible-tower/setup-bundle/ansible-tower-setup-bundle-${TOWER_VER}-1.el7.tar.gz \
-    && tar xvzf ansible-tower-setup-bundle-${TOWER_VER}-1.el7.tar.gz \
-    && cd ansible-tower-setup-bundle-${TOWER_VER}-1.el7
+    && curl -O http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-${TOWER_VER}.tar.gz \
+    && tar xvzf ansible-tower-setup-${TOWER_VER}.tar.gz \
+    && cd ansible-tower-setup-${TOWER_VER}
     
-ADD inventory /opt/ansible-tower-setup-bundle-${TOWER_VER}-1.el7/inventory
+ADD inventory /opt/ansible-tower-setup-${TOWER_VER}/inventory
 
-RUN cd /opt/ansible-tower-setup-bundle-${TOWER_VER}-1.el7 \
+RUN cd /opt/ansible-tower-setup-${TOWER_VER} \
     && su root \
     && ./setup.sh
 
