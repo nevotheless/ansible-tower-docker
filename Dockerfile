@@ -15,7 +15,7 @@ RUN apt-get update -y \
 
 # Download and install Tower
 RUN cd /opt \
-    && curl -O http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-${TOWER_VER}.tar.gz \
+    && wget http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-${TOWER_VER}.tar.gz \
     && tar xvzf ansible-tower-setup-${TOWER_VER}.tar.gz \
     && cd ansible-tower-setup-${TOWER_VER}
     
