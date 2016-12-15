@@ -21,6 +21,6 @@ RUN cd /opt \
 ADD inventory /opt/ansible-tower-setup-${TOWER_VER}/inventory
 
 RUN cd /opt/ansible-tower-setup-${TOWER_VER} \
-    && ./setup.sh
+    && sudo ./setup.sh
 
 EXPOSE 443 8080
