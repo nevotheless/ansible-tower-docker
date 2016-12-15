@@ -1,7 +1,7 @@
 #ansible-tower dockerfile
 # WORK IN PROGRESS
 # DO NOT USE IN PRODUCTION
-FROM ubuntu/trusty
+FROM ubuntu:trusty
 
 MAINTAINER tim@arctium.io
 
