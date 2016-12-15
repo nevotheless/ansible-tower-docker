@@ -1,7 +1,7 @@
 #ansible-tower dockerfile
 # WORK IN PROGRESS
 # DO NOT USE IN PRODUCTION
-FROM systemd_rawhide
+FROM ununseptium/centos-systemd
 
 MAINTAINER tim@arctium.io
 
