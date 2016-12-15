@@ -9,7 +9,7 @@ ENV TOWER_VER 3.0.3
     
 # Enable EPEL-Repo, install Ansible
 RUN apt-get update -y \
-    && apt-get install software-properties-common \
+    && apt-get install software-properties-common -y \
     && apt-add-repository ppa:ansible/ansible \
     && apt-get install ansible -y
 
