@@ -9,8 +9,8 @@ ENV TOWER_VER 3.0.3
 
 # Enable EPEL-Repo, install Ansible
 RUN yum update -y \
-    && yum install http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
-    && yum install ansible
+    && yum install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
+    && yum install -y ansible
 
 # Download and install Tower
 RUN cd /opt \
