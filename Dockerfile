@@ -20,7 +20,10 @@ RUN cd /opt \
     
 ADD inventory /opt/ansible-tower-setup-${TOWER_VER}/inventory
 
+#testing
+RUN echo $(whoami)
+
 RUN cd /opt/ansible-tower-setup-${TOWER_VER} \
-    && sudo ./setup.sh
+    && ./setup.sh
 
 EXPOSE 443 8080
