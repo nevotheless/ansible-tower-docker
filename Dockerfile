@@ -6,10 +6,6 @@ FROM centos:7
 MAINTAINER tim@arctium.io
 
 ENV TOWER_VER 3.0.3
-
-# testing | import gpg key for epel manually to maybe prevent docker hub from throwing up
-RUN curl -O https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 \
-    && rpm --import RPM-GPG-KEY-EPEL-7
     
 # Enable EPEL-Repo, install Ansible
 RUN yum update -y \
@@ -26,6 +22,7 @@ RUN cd /opt \
 ADD inventory /opt/ansible-tower-setup-${TOWER_VER}/inventory
 
 RUN cd /opt/ansible-tower-setup-${TOWER_VER} \
-    && sudo ./setup.sh
+    && su root \ # i know it's stupid but tower-setup isn't smart enough to actually know that it already have enough permissions
+    && ./setup.sh
 
 EXPOSE 443 8080
